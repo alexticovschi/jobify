@@ -23,6 +23,7 @@ class JobSeeder extends Seeder
                 'title' => $title=$faker->text,
                 'slug' => Str::slug($title),
                 'description' => $faker->paragraph(rand(2,10)),
+                'roles'=> $faker->text,
                 'address' => $faker->address,
                 'category_id' => rand(1,5),
                 'position' => $faker->jobTitle,

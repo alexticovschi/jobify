@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Jobs;
+use App\Job;
 
 class JobController extends Controller
 {
     public function index() {
-       $jobs = Jobs::all();
+       $jobs = Job::all();
 
        return view('welcome', compact('jobs'));
+    }
+
+    public function show($id, $job) {
+        $job = Job::find($id);
+        return view('jobs.show', compact('job'));
     }
 }
