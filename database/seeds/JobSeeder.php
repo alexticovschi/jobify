@@ -15,12 +15,12 @@ class JobSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        
+
         foreach(range(1,100) as $index){
             DB::table('jobs')->insert([
                 'user_id' => User::all()->random()->id,
                 'company_id' => Company::all()->random()->id,
-                'title' => $title='Avatar Ltd',
+                'title' => $title=$faker->text,
                 'slug' => Str::slug($title),
                 'description' => $faker->paragraph(rand(2,10)),
                 'address' => $faker->address,
