@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">{{$job->title}}</div>
 
@@ -16,8 +16,6 @@
 										<h3>Duties</h3>
                    <p>{{$job->roles}}</p>
 									</div>
-
-									<button class="btn btn-success">Apply</button>
                 </div>
             </div>
         </div>
@@ -33,6 +31,9 @@
 									<p>Date: {{$job->last_date}}</p>
                 </div>
 					  </div>
+						@if(Auth::check() && Auth::user()->user_type->'seeker')
+						<button class="btn btn-success btn-block mt-4">Apply</button>
+						@endif
         </div>
     </div>
 </div>

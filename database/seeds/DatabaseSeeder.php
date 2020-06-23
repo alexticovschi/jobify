@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Category;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +15,18 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(CompanySeeder::class);
         $this->call(JobSeeder::class);
+
+        $categories = [
+            'Technology',
+            'Engineering',
+            'Government',
+            'Medical',
+            'Construction',
+            'Software'
+        ];
+
+        foreach($categories as $category) {
+            Category::create(['name'=>$category]);
+        }
     }
 }
