@@ -24,14 +24,14 @@
                 <div class="card-header">Short Info</div>
 
                 <div class="card-body">
-									<p>Company: {{$job->company->cname}}</p>
+									<p>Company: <a href="/company/{{$job->company->id}}/{{$job->company->slug}}">{{$job->company->cname}}</a></p>
 									<p>Address: {{$job->address}}</p>
 									<p>Employment Type: {{$job->type}}</p>
 									<p>Position: {{$job->position}}</p>
 									<p>Date: {{$job->last_date}}</p>
                 </div>
 					  </div>
-						@if(Auth::check() && Auth::user()->user_type->'seeker')
+						@if(Auth::check() && Auth::user()->user_type='seeker')
 						<button class="btn btn-success btn-block mt-4">Apply</button>
 						@endif
         </div>
