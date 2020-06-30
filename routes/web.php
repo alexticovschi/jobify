@@ -22,3 +22,6 @@ Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
 
 // company
 Route::get('/company/{id}/{name}', 'CompanyController@index')->name('company.index');
+
+// user profile
+Route::get('/user/profile', 'UserController@index');
