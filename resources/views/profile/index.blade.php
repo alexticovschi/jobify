@@ -15,17 +15,21 @@
 							<div class="card-body">
 								<div class="form-group">
 									<label for="">Address</label>
-									<input type="text" class="form-control" name="address">
+									<input type="text" class="form-control" name="address" value="{{Auth::user()->profile->address}}">
 								</div>
 
 								<div class="form-group">
 									<label for="">Experience</label>
-									<textarea name="experience" class="form-control" id="" cols="30" rows="4"></textarea>
+									<textarea name="experience" class="form-control" id="" cols="30" rows="4">
+										{{Auth::user()->profile->experience}}
+									</textarea>
 								</div>
 
 								<div class="form-group">
 									<label for="">Bio</label>
-									<textarea name="bio" class="form-control" id="" cols="30" rows="4"></textarea>
+									<textarea name="bio" class="form-control" id="" cols="30" rows="4">
+										{{Auth::user()->profile->bio}}
+									</textarea>
 								</div>
 
 								<div class="form-group">
@@ -53,25 +57,31 @@
 							<p>Gender: {{Auth::user()->profile->gender}}</p>
 							<p>Experience: {{Auth::user()->profile->experience}}</p>
 							<p>Bio: {{Auth::user()->profile->bio}}</p>
-							<p>Member since: {{Auth::user()->created_at}}</p>
+							<p>Member since: {{date('F d Y', strtotime(Auth::user()->created_at))}}</p>
 						</div>
 					</div>
 
-					<div class="card mt-2">
-						<div class="card-header">Update Cover Letter</div>
-						<div class="card-body">
-							<input type="file" class="form-control" name="cover_letter">
-							<button class="btn btn-success mt-3" type="submit">Update</button>
+					<form action="{{route('cover.letter')}}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="card mt-2">
+							<div class="card-header">Update Cover Letter</div>
+							<div class="card-body">
+								<input type="file" class="form-control" name="cover_letter">
+								<button class="btn btn-success mt-3" type="submit">Update</button>
+							</div>
 						</div>
-					</div>
+					</form>
 
-					<div class="card mt-2">
-						<div class="card-header">Resume</div>
-						<div class="card-body">
-							<input type="file" class="form-control" name="resume">
-							<button class="btn btn-success mt-3" type="submit">Update</button>						</div>
-					</div>
-
+					<form action="{{route('resume')}}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="card mt-2">
+							<div class="card-header">Resume</div>
+							<div class="card-body">
+								<input type="file" class="form-control" name="resume">
+								<button class="btn btn-success mt-3" type="submit">Update</button>						
+							</div>
+						</div>
+					</form>
 				</div>
     </div>
 </div>
