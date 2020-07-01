@@ -45,4 +45,26 @@ class UserController extends Controller
         return redirect()->back()->with('message', 'Resume Updated!');
     }
 
+    public function avatar(Request $request) {
+        $user_id = auth()->user()->id;
+
+        if ($request->hasfile('avatar')) {
+            $file = $request->file('avatar');
+
+            /* get file extension */
+            $ext = $file->getClientOriginalExtension();
+            
+            $filename = time().'.'.$ext;
+
+            /* move file to public directory */
+            $file->move('uploads/avatar/', $filename);
+        }
+
+        Profile::where('user_id', $user_id)->update([
+            'avatar' => $filename
+        ]);
+
+        return redirect()->back()->with('message', 'Profile Picture Updated!');
+    }
+
 }

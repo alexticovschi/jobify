@@ -3,12 +3,27 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-2">
-          <img class="rounded-circle" src="{{asset('avatar/man.jpg')}}" width="100">
-        </div>
+        <div class="col-md-3 mb-3">
+					@if(empty(Auth::user()->profile->avatar))
+          	<img src="{{asset('avatar/man.jpg')}}" width="100" style="width: 100%;">
+					@else
+					  <img src="{{asset('uploads/avatar')}}/{{Auth::user()->profile->avatar}}" width="100" style="width: 100%;">
+					@endif
 
-				<div class="col-md-6">
-					<form action="/user/profile/create" method="POST">
+					<form action="{{route('avatar')}}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="card mt-2">
+							<div class="card-header">Avatar</div>
+							<div class="card-body">
+								<input type="file" class="form-control" name="avatar">
+								<button class="btn btn-success mt-3" type="submit">Update</button>						
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-5 mb-2">
+					<form action="{{route('profile.create')}}" method="POST">
 						@csrf
 						<div class="card">
 							<div class="card-header">Update Your Profile</div>
