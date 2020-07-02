@@ -4,16 +4,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 mb-3">
-					@if(empty(Auth::user()->profile->avatar))
-          	<img src="{{asset('avatar/man.jpg')}}" width="100" style="width: 100%;">
-					@else
-					  <img src="{{asset('uploads/avatar')}}/{{Auth::user()->profile->avatar}}" width="100" style="width: 100%;">
-					@endif
+					
 
 					<form action="{{route('avatar')}}" method="POST" enctype="multipart/form-data">
 						@csrf
-						<div class="card mt-2">
+						<div class="card">
 							<div class="card-header">Avatar</div>
+
+							@if(empty(Auth::user()->profile->avatar))
+								<img src="{{asset('avatar/man.jpg')}}" width="100" style="width: 100%;">
+							@else
+								<img src="{{asset('uploads/avatar')}}/{{Auth::user()->profile->avatar}}" width="100" style="width: 100%;">
+							@endif
+							
 							<div class="card-body">
 								<input type="file" class="form-control" name="avatar">
 								<button class="btn btn-success mt-3" type="submit">Update</button>						
@@ -31,6 +34,11 @@
 								<div class="form-group">
 									<label for="">Address</label>
 									<input type="text" class="form-control" name="address" value="{{Auth::user()->profile->address}}">
+								</div>
+
+								<div class="form-group">
+									<label for="">Phone Number</label>
+									<input type="text" class="form-control" name="phone_number" value="{{Auth::user()->profile->phone_number}}">
 								</div>
 
 								<div class="form-group">
@@ -69,6 +77,7 @@
 							<p>Name: {{Auth::user()->name}}</p>
 							<p>Email: {{Auth::user()->email}}</p>
 							<p>Address: {{Auth::user()->profile->address}}</p>
+							<p>Phone Number: {{Auth::user()->profile->phone_number}}</p>
 							<p>Gender: {{Auth::user()->profile->gender}}</p>
 							<p>Experience: {{Auth::user()->profile->experience}}</p>
 							<p>Bio: {{Auth::user()->profile->bio}}</p>
