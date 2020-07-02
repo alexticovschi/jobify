@@ -19,7 +19,11 @@
 							
 							<div class="card-body">
 								<input type="file" class="form-control" name="avatar">
-								<button class="btn btn-success mt-3" type="submit">Update</button>						
+								<button class="btn btn-success mt-3" type="submit">Update</button>
+
+								@if($errors->has('avatar'))
+									<div class="error" style="color:red;">{{$errors->first('avatar')}}</div>
+								@endif					
 							</div>
 						</div>
 					</form>
@@ -34,11 +38,17 @@
 								<div class="form-group">
 									<label for="">Address</label>
 									<input type="text" class="form-control" name="address" value="{{Auth::user()->profile->address}}">
+									@if($errors->has('address'))
+										<div class="error" style="color:red;">{{$errors->first('address')}}</div>
+									@endif
 								</div>
 
 								<div class="form-group">
 									<label for="">Phone Number</label>
 									<input type="text" class="form-control" name="phone_number" value="{{Auth::user()->profile->phone_number}}">
+									@if($errors->has('phone_number'))
+										<div class="error" style="color:red;">{{$errors->first('phone_number')}}</div>
+									@endif
 								</div>
 
 								<div class="form-group">
@@ -46,6 +56,9 @@
 									<textarea name="experience" class="form-control" id="" cols="30" rows="4">
 										{{Auth::user()->profile->experience}}
 									</textarea>
+									@if($errors->has('experience'))
+										<div class="error" style="color:red;">{{$errors->first('experience')}}</div>
+									@endif
 								</div>
 
 								<div class="form-group">
@@ -53,6 +66,9 @@
 									<textarea name="bio" class="form-control" id="" cols="30" rows="4">
 										{{Auth::user()->profile->bio}}
 									</textarea>
+									@if($errors->has('bio'))
+										<div class="error" style="color:red;">{{$errors->first('bio')}}</div>
+									@endif
 								</div>
 
 								<div class="form-group">
@@ -110,6 +126,10 @@
 							<div class="card-body">
 								<input type="file" class="form-control" name="cover_letter">
 								<button class="btn btn-success mt-3" type="submit">Update</button>
+
+								@if($errors->has('cover_letter'))
+									<div class="error" style="color:red;">{{$errors->first('cover_letter')}}</div>
+								@endif
 							</div>
 						</div>
 					</form>
@@ -120,7 +140,11 @@
 							<div class="card-header">Resume</div>
 							<div class="card-body">
 								<input type="file" class="form-control" name="resume">
-								<button class="btn btn-success mt-3" type="submit">Update</button>						
+								<button class="btn btn-success mt-3" type="submit">Update</button>		
+
+								@if($errors->has('resume'))
+									<div class="error" style="color:red;">{{$errors->first('resume')}}</div>
+								@endif				
 							</div>
 						</div>
 					</form>
