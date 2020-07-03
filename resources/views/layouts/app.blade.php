@@ -59,7 +59,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     
-                                    @if(Auth::user()->user_type='employer')
+                                    @if(Auth::user()->user_type === 'employer')
                                         {{ Auth::user()->company->cname }}              
                                     @else
                                         {{ Auth::user()->name }}               
