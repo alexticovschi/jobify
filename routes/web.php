@@ -22,11 +22,11 @@ Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
 
 // company
 Route::get('/company/{id}/{name}', 'CompanyController@index')->name('company.index');
-Route::get('/company/create', 'CompanyController@create');
+Route::get('/company/create', 'CompanyController@create')->name('company.view');
 Route::post('/company/create', 'CompanyController@store')->name('company.store');
 
 // user profile
-Route::get('/user/profile', 'UserController@index');
+Route::get('/user/profile', 'UserController@index')->name('jobseeker.profile');
 Route::post('/user/profile/create', 'UserController@store')->name('profile.create');
 Route::post('/user/coverletter', 'UserController@coverletter')->name('cover.letter');
 Route::post('/user/resume', 'UserController@resume')->name('resume');

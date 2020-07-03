@@ -28,7 +28,7 @@
 				</div>
 
 				<div class="col-md-5 mb-2">
-					<form action="{{route('profile.create')}}" method="POST">
+					<form action="{{route('company.store')}}" method="POST">
 						@csrf
 						<div class="card">
 							<div class="card-header">Update Your Company Information</div>
@@ -40,7 +40,7 @@
 
 								<div class="form-group">
 									<label for="">Phone</label>
-									<input type="text" class="form-control" name="address">
+									<input type="text" class="form-control" name="phone">
 								</div>
 
 								<div class="form-group">
@@ -55,7 +55,7 @@
 
 								<div class="form-group">
 									<label for="">Description</label>
-									<textarea name="description" id="" cols="30" rows="4"></textarea>
+									<textarea class="form-control" name="description" id="" cols="30" rows="4"></textarea>
 								</div>														
 
 								<div class="form-group">
@@ -77,7 +77,12 @@
 					<div class="card">
 						<div class="card-header">About Your Company</div>
 						<div class="card-body">
-							<p>Company Name: {{Auth::user()->company->cname}}</p>
+							<p>Name: {{Auth::user()->company->cname}}</p>
+							<p>Address: {{Auth::user()->company->address}}</p>
+							<p>Phone: {{Auth::user()->company->phone}}</p>
+							<p>Website: <a href="//{{Auth::user()->company->website}}" target="blank">{{Auth::user()->company->website}}</a></p>
+							<p>Slogan: {{Auth::user()->company->slogan}}</p>
+							<p>Description: {{Auth::user()->company->description}}</p>
 						</div>
 					</div>
 
