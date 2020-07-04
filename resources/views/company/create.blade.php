@@ -4,23 +4,23 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3 mb-3">
-					<form action="{{route('avatar')}}" method="POST" enctype="multipart/form-data">
+					<form action="{{route('company.logo')}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="card">
 							<div class="card-header">Company Logo</div>
 
-							@if(empty(Auth::user()->profile->avatar))
-								<img src="{{asset('avatar/man.jpg')}}" width="100" style="width: 100%;">
+							@if(empty(Auth::user()->company->logo))
+								<img src="{{asset('logo/logo.png')}}" style="width: 100%;">
 							@else
-								<img src="{{asset('uploads/avatar')}}/{{Auth::user()->profile->avatar}}" width="100" style="width: 100%;">
+								<img src="/uploads/logo/{{Auth::user()->company->logo}}" style="width: 100%;">
 							@endif
 							
 							<div class="card-body">
-								<input type="file" class="form-control" name="avatar">
+								<input type="file" class="form-control" name="logo">
 								<button class="btn btn-success btn-block mt-3" type="submit">Update</button>
 
-								@if($errors->has('avatar'))
-									<div class="error" style="color:red;">{{$errors->first('avatar')}}</div>
+								@if($errors->has('logo'))
+									<div class="error" style="color:red;">{{$errors->first('logo')}}</div>
 								@endif					
 							</div>
 						</div>

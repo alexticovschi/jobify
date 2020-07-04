@@ -11,6 +11,12 @@
                     <img src="{{asset('cover/cov-photo.jpg')}}" width="100%" alt="">                
                 @endif
                 <div class="company-decription mt-3">
+					@if(empty(Auth::user()->company->logo))
+						<img src="{{asset('logo/logo.png')}}" width="100">
+					@else
+						<img src="/uploads/logo/{{Auth::user()->company->logo}}" width="100">
+					@endif
+
                     <h1>{{$company->cname}}</h1>
 
                     <h5 class="mb-3">{{$company->description}}</h5>
