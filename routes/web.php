@@ -13,12 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'JobController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// jobs
+Route::get('/', 'JobController@index');
 Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
+Route::get('/jobs/create', 'JobController@create')->name('jobs.view');
 
 // company
 Route::get('/company/{id}/{name}', 'CompanyController@index')->name('company.index');
