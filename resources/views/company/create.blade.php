@@ -35,27 +35,27 @@
 							<div class="card-body">
 								<div class="form-group">
 									<label for="">Address</label>
-									<input type="text" class="form-control" name="address">
+									<input type="text" class="form-control" name="address" value="{{Auth::user()->company->address}}">
 								</div>
 
 								<div class="form-group">
 									<label for="">Phone</label>
-									<input type="text" class="form-control" name="phone">
+									<input type="text" class="form-control" name="phone" value="{{Auth::user()->company->phone}}">
 								</div>
 
 								<div class="form-group">
 									<label for="">Website</label>
-									<input type="text" class="form-control" name="website">
+									<input type="text" class="form-control" name="website" value="{{Auth::user()->company->website}}">
 								</div>								
 								
 								<div class="form-group">
 									<label for="">Slogan</label>
-									<input type="text" class="form-control" name="slogan">
+									<input type="text" class="form-control" name="slogan" value="{{Auth::user()->company->slogan}}">
 								</div>
 
 								<div class="form-group">
 									<label for="">Description</label>
-									<textarea class="form-control" name="description" id="" cols="30" rows="4"></textarea>
+									<textarea class="form-control" name="description" id="" cols="30" rows="4">{{Auth::user()->company->description}}</textarea>
 								</div>														
 
 								<div class="form-group">
@@ -83,19 +83,20 @@
 							<p>Website: <a href="//{{Auth::user()->company->website}}" target="blank">{{Auth::user()->company->website}}</a></p>
 							<p>Slogan: {{Auth::user()->company->slogan}}</p>
 							<p>Description: {{Auth::user()->company->description}}</p>
+							<p>Company Page: <a href="/company/{{Auth::user()->company->id}}/{{Auth::user()->company->slug}}">View</a></p>
 						</div>
 					</div>
 
-					<form action="{{route('cover.letter')}}" method="POST" enctype="multipart/form-data">
+					<form action="{{route('cover.photo')}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="card mt-2">
-							<div class="card-header">Update Cover Letter</div>
+							<div class="card-header">Update Cover Photo</div>
 							<div class="card-body">
-								<input type="file" class="form-control" name="cover_letter">
+								<input type="file" class="form-control" name="cover_photo">
 								<button class="btn btn-success btn-block mt-3" type="submit">Update</button>
 
-								@if($errors->has('cover_letter'))
-									<div class="error" style="color:red;">{{$errors->first('cover_letter')}}</div>
+								@if($errors->has('cover_photo'))
+									<div class="error" style="color:red;">{{$errors->first('cover_photo')}}</div>
 								@endif
 							</div>
 						</div>

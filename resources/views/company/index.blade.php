@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="company-profile">
-            <img src="{{asset('cover/cov-photo.jpg')}}" width="100%" alt="">
+                @if(!empty(Auth::user()->company->cover_photo))
+                    <img src="/uploads/coverphoto/{{Auth::user()->company->cover_photo}}" width="100%" alt="">
+                @else
+                    <img src="{{asset('cover/cov-photo.jpg')}}" width="100%" alt="">                
+                @endif
                 <div class="company-decription mt-3">
                     <h1>{{$company->cname}}</h1>
 
