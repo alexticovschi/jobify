@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'JobController@index');
 Route::get('/jobs/{id}/{job}', 'JobController@show')->name('jobs.show');
 Route::get('/jobs/create', 'JobController@create')->name('jobs.view');
+Route::post('/jobs/create', 'JobController@store')->name('jobs.store');
 
 // company
 Route::get('/company/{id}/{name}', 'CompanyController@index')->name('company.index');
