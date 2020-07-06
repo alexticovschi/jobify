@@ -19,17 +19,35 @@
 								@csrf
 								<div class="form-group">
 									<label for="title">Title:</label>
-									<input type="text" name="title" class="form-control">
+									<input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}">
+
+									 @if ($errors->has('title'))
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('title') }}</strong>
+                      </span>
+                    @endif
 								</div>
 
 								<div class="form-group">
 									<label for="description">Description:</label>
-									<input type="text" name="description" class="form-control">
+									<input type="text" name="description" class="form-control  @error('description') is-invalid @enderror" value="{{ old('description') }}">
+
+									@if ($errors->has('description'))
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('description') }}</strong>
+                      </span>
+                    @endif
 								</div>			
 
 								<div class="form-group">
 									<label for="roles">Role:</label>
-									<textarea name="roles" class="form-control"></textarea>
+									<textarea name="roles" class="form-control @error('roles') is-invalid @enderror" value="{{ old('roles') }}"></textarea>
+
+									@if ($errors->has('roles'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('roles') }}</strong>
+                    </span>
+                  @endif
 								</div>
 
 								<div class="form-group">
@@ -43,12 +61,25 @@
 
 								<div class="form-group">
 									<label for="position">Position:</label>
-									<input type="text" name="position" class="form-control">
+									<input type="text" name="position" class="form-control @error('position') is-invalid @enderror" value="{{ old('position')}}">
+
+									@if ($errors->has('position'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('position') }}</strong>
+                    </span>
+                  @endif
 								</div>		
 
 								<div class="form-group">
 									<label for="address">Address:</label>
-									<input type="text" name="address" class="form-control">
+									<input type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ old('address')}}">
+
+
+									@if ($errors->has('address'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('address') }}</strong>
+                    </span>
+                  @endif								
 								</div>
 
 								<div class="form-group">
