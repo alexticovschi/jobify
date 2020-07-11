@@ -9,22 +9,32 @@ use App\Http\Requests\JobPostRequest;
 
 class JobController extends Controller
 {
-    public function index() {
-       $jobs = Job::all();
+    public function index()
+    {
+        $jobs = Job::all();
 
-       return view('welcome', compact('jobs'));
+        return view('welcome', compact('jobs'));
     }
 
-    public function show($id, $job) {
+    public function show($id, $job)
+    {
         $job = Job::find($id);
         return view('jobs.show', compact('job'));
     }
 
-    public function create() {
+    public function create()
+    {
         return view('jobs.create');
     }
 
-    public function store(JobPostRequest $request) {
+    public function myJob()
+    {
+        $jobs = Job::where('user_id', auth()->user()->id)->get();
+        return view('jobs.myjob', compact('jobs'));
+    }
+
+    public function store(JobPostRequest $request)
+    {
         $user_id = auth()->user()->id;
         $company = Company::where('user_id', $user_id)->first();
         
