@@ -30,7 +30,7 @@
 
 								<div class="form-group">
 									<label for="description">Description:</label>
-									<input type="text" name="description" class="form-control  @error('description') is-invalid @enderror" value="{{ old('description') }}">
+									<textarea type="text" name="description" class="form-control  @error('description') is-invalid @enderror" value="{{ old('description') }}"></textarea>
 
 									@if ($errors->has('description'))
                       <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
 									<label for="category">Category:</label>
 									<select type="text" name="category" class="form-control">
 										@foreach(App\Category::all() as $category)
-											<option value="{{$category->name}}">{{$category->name}}</option>
+											<option value="{{$category->id}}">{{$category->name}}</option>
 										@endforeach
 									</select>
 								</div>
@@ -86,7 +86,7 @@
 									<label for="type">Type:</label>
 									<select type="text" name="type" class="form-control">
 										<option value="fulltime">Part Time</option>
-										<option value="partime">Full Time</option>
+										<option value="parttime">Full Time</option>
 										<option value="contract">Contract</option>
 									</select>							
 								</div>	
