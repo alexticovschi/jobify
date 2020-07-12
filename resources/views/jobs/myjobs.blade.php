@@ -38,7 +38,7 @@
 																		<a href="/jobs/{{$job->id}}/{{$job->slug}}">
 																				<button class="btn btn-success btn-sm">Apply</button>
 																		</a>
-																		<button class="btn btn-dark">Edit</button>
+																		<a href="{{route('job.edit', [$job->id])}}" class="btn btn-dark">Edit</a>
 																</td>
 														</tr> 
 												@endforeach

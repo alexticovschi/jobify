@@ -27,10 +27,24 @@ class JobController extends Controller
         return view('jobs.create');
     }
 
-    public function myJob()
+    public function myJobs()
     {
         $jobs = Job::where('user_id', auth()->user()->id)->get();
-        return view('jobs.myjob', compact('jobs'));
+        return view('jobs.myjobs', compact('jobs'));
+    }
+
+    public function edit($id)
+    {
+        $job = Job::findOrFail($id);
+        return view('jobs.edit', compact('job'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $job = Job::findOrFail($id);
+        $job->update($request->all());
+
+        return redirect()->back()->with('message', 'Job Updated Successfully!');
     }
 
     public function store(JobPostRequest $request)

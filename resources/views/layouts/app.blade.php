@@ -76,12 +76,16 @@
                                         <a class="dropdown-item" href="{{ route('company.view') }}">
                                         {{ __('Company') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('jobs.myjobs') }}">
+                                        {{ __('My Jobs') }}
+                                        </a>
                                     @endif
 
                                     @if(Auth::user()->user_type==='seeker')
                                         <a class="dropdown-item" href="{{ route('jobseeker.profile') }}">
                                         {{ __('Profile') }}
                                         </a>
+                                      
                                     @endif
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"
