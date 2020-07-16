@@ -101,7 +101,7 @@
 
 								<div class="form-group">
 									<label for="last date">Last Date:</label>
-									<input type="date" name="last_date" class="form-control">
+									<input type="text" id="datepicker" name="last_date" class="form-control">
 								</div>		
 
 								<div class="form-group">

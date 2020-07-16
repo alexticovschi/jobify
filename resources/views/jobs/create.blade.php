@@ -30,7 +30,7 @@
 
 								<div class="form-group">
 									<label for="description">Description:</label>
-									<textarea type="text" name="description" class="form-control  @error('description') is-invalid @enderror" value="{{ old('description') }}"></textarea>
+									<textarea type="text" name="description" class="form-control  @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
 
 									@if ($errors->has('description'))
                       <span class="invalid-feedback" role="alert">
@@ -41,7 +41,7 @@
 
 								<div class="form-group">
 									<label for="roles">Role:</label>
-									<textarea name="roles" class="form-control @error('roles') is-invalid @enderror" value="{{ old('roles') }}"></textarea>
+									<textarea name="roles" class="form-control @error('roles') is-invalid @enderror">{{ old('roles') }}</textarea>
 
 									@if ($errors->has('roles'))
                     <span class="invalid-feedback" role="alert">
@@ -101,7 +101,7 @@
 
 								<div class="form-group">
 									<label for="last date">Last Date:</label>
-									<input type="date" name="last_date" class="form-control">
+									<input type="text" id="datepicker" name="last_date" class="form-control">
 								</div>		
 
 								<div class="form-group">
