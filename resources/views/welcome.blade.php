@@ -23,9 +23,13 @@
                         <td><i class="fa fa-map-marker"></i> {{$job->address}}</td>
                         <td><i class="fa fa-globe"></i><br>{{$job->last_date}}</td>
                         <td>
-                            <a href="/jobs/{{$job->id}}/{{$job->slug}}">
-                                <button class="btn btn-success btn-sm">Apply</button>
-                            </a>
+                            @if($job->checkApplication())
+								<button class="btn btn-info btn-sm">Applied</button>
+							@else
+                                <a href="/jobs/{{$job->id}}/{{$job->slug}}">
+                                    <button class="btn btn-success btn-sm">Apply</button>
+                                </a>
+                            @endif
                         </td>
                     </tr> 
                 @endforeach
