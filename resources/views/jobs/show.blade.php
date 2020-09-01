@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
+					@if(Session::has('message'))
+						<div class="alert alert-success my-2 text-center">
+							{{Session::get('message')}}
+						</div>
+					@endif
             <div class="card">
                 <div class="card-header">{{$job->title}}</div>
 
@@ -31,8 +36,14 @@
 									<p>Date: {{$job->last_date}}</p>
                 </div>
 					  </div>
-						@if(Auth::check() && Auth::user()->user_type='seeker')
-						<button class="btn btn-success btn-block mt-4">Apply</button>
+						@if(Auth::check() && Auth::user()->user_type == 'seeker')
+							@if($job->checkApplication())
+								<button class="btn btn-info btn-block mt-4">Already Applied</button>
+							@else
+								<form action="{{route('apply', [$job->id])}}" method="POST">@csrf
+									<button class="btn btn-success btn-block mt-4">Apply</button>
+								</form>
+							@endif
 						@endif
         </div>
     </div>

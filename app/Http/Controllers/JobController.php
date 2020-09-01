@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Http\Requests\JobPostRequest;
 use App\Job;
+use Auth;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('employer', ['except' => array('index', 'show')]);
+        $this->middleware('employer', ['except' => array('index', 'show', 'apply')]);
     }
 
     public function index()
@@ -21,7 +22,7 @@ class JobController extends Controller
         return view('welcome', compact('jobs'));
     }
 
-    public function show($id, $job)
+    public function show($id)
     {
         $job = Job::find($id);
         return view('jobs.show', compact('job'));
@@ -73,5 +74,13 @@ class JobController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Job Posted Successfully!');
+    }
+
+    public function apply(Request $request, $id)
+    {
+        $jobId = Job::find($id);
+        $jobId->users()->attach(Auth::user()->id);
+
+        return redirect()->back()->with('message', 'Application Sent!');
     }
 }
