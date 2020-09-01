@@ -9,7 +9,7 @@ class Job extends Model
     protected $fillable = [
         'user_id',
         'company_id',
-        'tile',
+        'title',
         'slug',
         'description',
         'roles',
