@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Closure;
 
 class Seeker
@@ -15,7 +16,7 @@ class Seeker
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->user_type=='seeker') {
+        if (Auth::check() && Auth::user()->user_type == 'seeker') {
             return $next($request);
         } else {
             return redirect('/');

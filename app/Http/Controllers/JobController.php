@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Job;
 use App\Company;
 use App\Http\Requests\JobPostRequest;
+use App\Job;
+use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('employer', ['except' => array('index', 'show')]);
+    }
+
     public function index()
     {
         $jobs = Job::all();
@@ -51,7 +56,7 @@ class JobController extends Controller
     {
         $user_id = auth()->user()->id;
         $company = Company::where('user_id', $user_id)->first();
-        
+
         Job::create([
             'user_id' => $user_id,
             'company_id' => $company->id,
@@ -64,7 +69,7 @@ class JobController extends Controller
             'address' => request('address'),
             'type' => request('type'),
             'status' => request('status'),
-            'last_date' => request('last_date')
+            'last_date' => request('last_date'),
         ]);
 
         return redirect()->back()->with('message', 'Job Posted Successfully!');

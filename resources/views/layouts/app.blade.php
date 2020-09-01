@@ -67,9 +67,11 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('jobs.create') }}">{{ __('Post a Job') }}</a>
-                            </li>
+                            @if(Auth::user()->user_type === 'employer')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('jobs.create') }}">{{ __('Post a Job') }}</a>
+                                </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     
