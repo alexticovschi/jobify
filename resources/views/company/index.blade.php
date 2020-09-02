@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="company-profile">
-                @if(!empty(Auth::user()->company->cover_photo))
-                    <img src="/uploads/coverphoto/{{Auth::user()->company->cover_photo}}" width="100%" alt="">
+                @if($company->cover_photo !== 'cover/cov-photo.jpg')
+                    <img src="/uploads/coverphoto/{{$company->cover_photo}}" width="100%" alt="cover photo">
                 @else
-                    <img src="{{asset('cover/cov-photo.jpg')}}" width="100%" alt="">                
+                    <img src="{{asset('/cover/cov-photo.jpg')}}" width="100%" alt="cover photo">                
                 @endif
                 <div class="company-decription mt-3">
-					@if(empty(Auth::user()->company->logo))
-						<img src="{{asset('logo/logo.png')}}" width="100">
-					@else
-						<img src="/uploads/logo/{{Auth::user()->company->logo}}" width="100">
+                    @if($company->logo !== 'avatar/man.jpg')
+                        <img src="/uploads/logo/{{$company->logo}}" width="100" alt="company logo">
+                    @else
+						<img src="{{asset('/logo/logo.png')}}" width="100" alt="company logo">
 					@endif
 
                     <h1>{{$company->cname}}</h1>

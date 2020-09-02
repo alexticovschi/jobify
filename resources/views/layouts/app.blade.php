@@ -92,6 +92,9 @@
                                         <a class="dropdown-item" href="{{ route('jobs.myjobs') }}">
                                         {{ __('My Jobs') }}
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('jobs.applicants') }}">
+                                        {{ __('Applicants') }}
+                                        </a>
                                     @endif
 
                                     @if(Auth::user()->user_type==='seeker')

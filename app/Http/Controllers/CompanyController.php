@@ -12,9 +12,10 @@ class CompanyController extends Controller
         $this->middleware('employer', ['except' => array('index')]);
     }
 
-    public function index($id, $name)
+    public function index($id, Company $company)
     {
-        $company = Company::find($id);
+        $company = Company::where('user_id', $id)->get();
+        $company = $company[0];
         // dd($company);
 
         return view('company.index', compact('company'));
