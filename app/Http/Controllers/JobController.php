@@ -17,9 +17,10 @@ class JobController extends Controller
 
     public function index()
     {
-        $jobs = Job::all();
+        $jobs = Job::latest()->limit(10)->where('status', 1)->get();
+        $companies = Company::latest()->limit(12)->get();
 
-        return view('welcome', compact('jobs'));
+        return view('welcome', compact('jobs', 'companies'));
     }
 
     public function show($id)
