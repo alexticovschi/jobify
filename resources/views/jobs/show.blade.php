@@ -27,13 +27,13 @@
 				<div class="col-md-4">
             <div class="card">
                 <div class="card-header">Short Info</div>
-
                 <div class="card-body">
 									<p>Company: <a href="/company/{{$job->company->id}}/{{$job->company->slug}}">{{$job->company->cname}}</a></p>
 									<p>Address: {{$job->address}}</p>
 									<p>Employment Type: {{$job->type}}</p>
 									<p>Position: {{$job->position}}</p>
-									<p>Date: {{$job->last_date}}</p>
+									<p>Posted: {{$job->created_at}}</p>
+									<p>Last Date to Apply: {{date('F d, y', strtotime($job->last_date))}}</p>
                 </div>
 					  </div>
 						@if(Auth::check() && Auth::user()->user_type == 'seeker')
