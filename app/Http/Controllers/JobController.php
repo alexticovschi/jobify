@@ -20,7 +20,7 @@ class JobController extends Controller
         $jobs = Job::latest()->limit(10)->where('status', 1)->get();
         $companies = Company::get()->random(8);
 
-        return view('welcome', compact('jobs', 'companies'));
+        return response()->json(compact('jobs', 'companies'));
     }
 
     public function show($id)
@@ -54,11 +54,11 @@ class JobController extends Controller
                 ->orWhere('address', $address)
                 ->paginate(10);
 
-            return view('jobs.alljobs', compact('jobs'));
+            return response()->json(compact('jobs'));
 
         } else {
             $jobs = Job::latest()->paginate(12);
-            return view('jobs.alljobs', compact('jobs'));
+            return response()->json(compact('jobs'));
         }
     }
 
