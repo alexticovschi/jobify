@@ -5,7 +5,6 @@
     <div class="row">
         <div class="col-md-3 mb-3">
 					
-
 					<form action="{{route('avatar')}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<div class="card">
