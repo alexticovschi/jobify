@@ -20,7 +20,9 @@ class JobController extends Controller
         $jobs = Job::latest()->limit(10)->where('status', 1)->get();
         $companies = Company::get()->random(8);
 
-        return response()->json(compact('jobs', 'companies'));
+        return view('index', compact('jobs', 'companies'));
+
+        // return response()->json(compact('jobs', 'companies'));
     }
 
     public function show($id)

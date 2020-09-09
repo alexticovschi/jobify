@@ -1,57 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-const Header = () => {
-    return (
-        <>
-            <div className="site-mobile-menu">
-                <div className="site-mobile-menu-header">
-                    <div className="site-mobile-menu-close mt-3">
-                        <span className="icon-close2 js-menu-toggle"></span>
-                    </div>
-                </div>
-                <div className="site-mobile-menu-body"></div>
+<div>
+    <div class="site-mobile-menu">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
             </div>
-            <div className="site-navbar-wrap js-site-navbar bg-white">
-                <div className="container">
-                    <div className="site-navbar bg-light">
-                        <div className="py-1">
-                            <div className="row align-items-center">
-                                <div className="col-2">
-                                    <h2 className="mb-0 site-logo">
-                                        <Link to="/">
-                                            <strong className="font-weight-bold">
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div>
+            <div class="site-navbar-wrap js-site-navbar bg-white">
+                <div class="container">
+                    <div class="site-navbar bg-light">
+                        <div class="py-1">
+                            <div class="row align-items-center">
+                                <div class="col-2">
+                                    <h2 class="mb-0 site-logo">
+                                        <a href="/">
+                                            <strong class="font-weight-bold">
                                                 Jobify
-                                            </strong>{" "}
-                                        </Link>
+                                            </strong>
+                                        </a>
                                     </h2>
                                 </div>
-                                <div className="col-10">
+                                <div class="col-10">
                                     <nav
-                                        className="site-navigation text-right"
+                                        class="site-navigation text-right"
                                         role="navigation"
                                     >
-                                        <div className="container">
-                                            <div className="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                                        <div class="container">
+                                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
                                                 <a
                                                     href="#"
-                                                    className="site-menu-toggle js-menu-toggle text-black"
+                                                    class="site-menu-toggle js-menu-toggle text-black"
                                                 >
-                                                    <span className="icon-menu h3"></span>
+                                                    <span class="icon-menu h3"></span>
                                                 </a>
                                             </div>
 
-                                            <ul className="site-menu js-clone-nav d-none d-lg-block">
+                                            <ul class="site-menu js-clone-nav d-none d-lg-block">
                                                 <li>
-                                                    <Link to="/user/register">
+                                                    <a href="/user/register">
                                                         For Candidates
-                                                    </Link>
+                                                    </a>
                                                 </li>
-                                                <li className="has-children">
+                                                <li class="has-children">
                                                     <a href="/employer/register">
                                                         For Employees
                                                     </a>
-                                                    <ul className="dropdown arrow-top">
+                                                    <ul class="dropdown arrow-top">
                                                         <li>
                                                             <a href="#">
                                                                 Category
@@ -74,11 +69,11 @@ const Header = () => {
                                                                 Profile
                                                             </a>
                                                         </li>
-                                                        <li className="has-children">
+                                                        <li class="has-children">
                                                             <a href="#">
                                                                 More Links
                                                             </a>
-                                                            <ul className="dropdown">
+                                                            <ul class="dropdown">
                                                                 <li>
                                                                     <a href="#">
                                                                         Browse
@@ -102,16 +97,10 @@ const Header = () => {
                                                     </ul>
                                                 </li>
                                                 <li>
-                                                    <Link to="/jobs">Jobs</Link>
+                                                    <a href="/jobs">Jobs</a>
                                                 </li>
                                                 <li>
-                                                    {/* <a href="#">
-                                                        <span className="bg-primary text-white py-3 px-4 rounded">
-                                                            <span className="icon-plus mr-3"></span>
-                                                            Post New Job
-                                                        </span>
-                                                    </a> */}
-                                                    {/*  Button trigger modal */}
+                                                    <!-- Button trigger modal -->
                                                     <a href="#">
                                                         <span
                                                             data-toggle="modal"
@@ -122,6 +111,7 @@ const Header = () => {
                                                             Login
                                                         </span>
                                                     </a>
+
                                                 </li>
                                             </ul>
                                         </div>
@@ -132,49 +122,26 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+        
+</div>
 
-            {/* -- Modal --> */}
-            <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-            >
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                                Modal title
-                            </h5>
-                            <button
-                                type="button"
-                                class="close"
-                                data-dismiss="modal"
-                                aria-label="Close"
-                            >
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">...</div>
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-dismiss="modal"
-                            >
-                                Close
-                            </button>
-                            <button type="button" class="btn btn-primary">
-                                Save changes
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-};
-
-export default Header;
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

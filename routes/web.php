@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 // Auth::routes();
-Route::view('/{path?}', 'index');
+// Route::view('/{path?}', 'index');
 
 Auth::routes(['verify' => true]);
 
@@ -45,6 +45,7 @@ Route::post('/user/coverletter', 'UserController@coverletter')->name('cover.lett
 Route::post('/user/resume', 'UserController@resume')->name('resume');
 Route::post('/user/avatar', 'UserController@avatar')->name('avatar');
 
+Route::view('/user/register', 'auth.register')->name('seeker.register');
 Route::view('/employer/register', 'auth.employer-register')->name('employer.register');
 Route::post('/employer/register', 'EmployerRegisterController@employerRegister')->name('emp.register');
 

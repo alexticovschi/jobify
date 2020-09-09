@@ -29,13 +29,11 @@
     <link rel="stylesheet" href="{{asset('external/css/style.css')}}">
 
 </head>
+<body>
+    <div id="root"></div>
 
-    <div class="site-wrap">
-      @include('../partials/nav')
-      @yield('content')
-      @include('../partials/footer')
-    </div>
-  
+    <script src="{{asset('js/app.js')}}"></script>
+
     <script src="{{asset('external/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('external/js/jquery-migrate-3.0.1.min.js')}}"></script>
     <script src="{{asset('external/js/jquery-ui.js')}}"></script>
@@ -48,11 +46,5 @@
     <script src="{{asset('external/js/bootstrap-datepicker.min.js')}}"></script>
     <script src="{{asset('external/js/aos.js')}}"></script>
     <script src="{{asset('external/js/main.js')}}"></script>
-
-    <script>
-      $(function() {
-        $("#datepicker").datepicker();
-      });
-    </script>
 </body>
 </html>
