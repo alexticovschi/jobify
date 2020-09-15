@@ -83,6 +83,53 @@
 								</div>
 
 								<div class="form-group">
+									<label for="number_of_vacancy">No of vacancy:</label>
+									<input type="text" name="number_of_vacancy" class="form-control @error('number_of_vacancy') is-invalid @enderror" value="{{ $job->number_of_vacancy }}">
+
+
+									@if ($errors->has('number_of_vacancy'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('number_of_vacancy') }}</strong>
+                    </span>
+                  @endif								
+								</div>
+
+								<div class="form-group">
+									<label for="experience">Experience:</label>
+									<input type="text" name="experience" class="form-control @error('experience') is-invalid @enderror" value="{{ $job->experience }}">
+
+
+									@if ($errors->has('experience'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('experience') }}</strong>
+                    </span>
+                  @endif								
+								</div>
+
+								<div class="form-group">
+									<label for="gender">Gender:</label>
+	
+									<select type="text" name="gender" class="form-control">
+										<option value="any" {{ $job->gender === 'any' ? 'selected' : '' }}>Any</option>
+										<option value="male" {{ $job->gender === 'male' ? 'selected' : '' }}>Male</option>
+										<option value="female" {{ $job->gender === 'female' ? 'selected' : '' }}>Female</option>
+									</select>									
+								</div>
+								
+								<div class="form-group">
+									<label for="salary">Salary per Year:</label>
+									<select name="salary" class="form-control">
+										<option value="negotiable">Negotiable</option>
+										<option value="20000-5000">20000-50000</option>
+										<option value="50000-100000">50000-700000</option>
+										<option value="70000-100000">70000-100000</option>
+										<option value="100000-120000">100000-120000</option>
+										<option value="120000-140000">120000-140000</option>
+ 										<option value="160000 plus">160000 +</option>
+									</select>							
+								</div>	
+
+								<div class="form-group">
 									<label for="type">Type:</label>
 									<select type="text" name="type" class="form-control">
 										<option value="fulltime" {{ $job->type === 'fulltime' ? 'selected' : '' }}>Full Time</option>
@@ -101,7 +148,14 @@
 
 								<div class="form-group">
 									<label for="last date">Last Date:</label>
-									<input type="text" id="datepicker" name="last_date" class="form-control">
+									<input type="text" id="datepicker" name="last_date" class="form-control" @error('last_date') is-invalid @enderror value="{{ $job->last_date }}">
+
+
+									@if ($errors->has('last_date'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('last_date') }}</strong>
+                    </span>
+                  @endif								
 								</div>		
 
 								<div class="form-group">
