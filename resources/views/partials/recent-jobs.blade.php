@@ -5,46 +5,38 @@
             <h2 class="mb-5 h3">Recent Jobs</h2>
             <div class="rounded border jobs-wrap">
 
-              {{-- <a href="job-single.html" class="job-item d-block d-md-flex align-items-center  border-bottom fulltime">
-                <div class="company-logo blank-logo text-center text-md-left pl-3">
-                  <img src="images/company_logo_blank.png" alt="Image" class="img-fluid mx-auto">
-                </div>
-                <div class="job-details h-100">
-                  <div class="p-3 align-self-center">
-                    <h3>Restaurant Crew</h3>
-                    <div class="d-block d-lg-flex">
-                      <div class="mr-3"><span class="icon-suitcase mr-1"></span> Resto Bar</div>
-                      <div class="mr-3"><span class="icon-room mr-1"></span> Florida</div>
-                      <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="job-category align-self-center">
-                  <div class="p-3">
-                    <span class="text-info p-2 rounded border border-info">Full Time</span>
-                  </div>
-                </div>  
-              </a> --}}
+              {{-- <?php dd($jobs) ?> --}}
 
               @foreach($jobs as $job)
-                <a href="#" class="job-item d-block d-md-flex align-items-center freelance">
+                <a href="{{route('jobs.show', [$job->id, $job->slug])}}" class="job-item d-block d-md-flex align-items-center freelance">
                   <div class="company-logo blank-logo text-center text-md-left pl-3">
-                    <img src="images/logo_1.png" alt="Image" class="img-fluid mx-auto">
+                  <img src="{{asset('uploads/logo')}}/{{$job->company->logo}}" alt="Image" class="img-fluid mx-auto">
                   </div>
                   <div class="job-details h-100">
                     <div class="p-3 align-self-center">
                       <h3>{{$job->position}}</h3>
                       <div class="d-block d-lg-flex">
                         <div class="mr-3"><span class="icon-suitcase mr-1"></span> {{$job->company->cname}}</div>
-                        <div class="mr-3"><span class="icon-room mr-1"></span> Anywhere</div>
-                        <div><span class="icon-money mr-1"></span> $55000 &mdash; 70000</div>
+                        <div class="mr-3"><span class="icon-room mr-1"></span> {{$job->address}}</div>
+                        <div><span class="icon-money mr-1"></span> {{$job->salary}}</div>
                       </div>
                     </div>
                   </div>
                   <div class="job-category align-self-center">
-                    <div class="p-3">
-                      <span class="text-warning p-2 rounded border border-warning">{{$job->type}}</span>
-                    </div>
+                    @if($job->type=='fulltime')
+                      <div class="p-3">
+                        <span class="text-info p-2 rounded border border-info">Full Time</span>
+                      </div>
+                    @elseif($job->type=='parttime')
+                      <div class="p-3">
+                        <span class="text-warning p-2 rounded border border-warning">Part Time</span>
+                      </div>
+                    @else 
+                      <div class="p-3">
+                        <span class="text-danger p-2 rounded border border-danger">Contract</span>
+                      </div>
+                    @endif
+                      
                   </div>  
                 </a>
               @endforeach
